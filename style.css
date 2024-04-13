@@ -1,0 +1,144 @@
+:root {
+    color-scheme: light dark;
+
+    --white-title: rgba(245, 237, 237, 0.925);
+    --dark--title: rgb(49, 44, 44);
+    /* this has to be set to switch between light or dark */
+
+    --light-bg: ghostwhite;
+    --light-color: darkslategray;
+    --light-code: tomato;
+
+    --dark-bg: darkslategray;
+    --dark-color: ghostwhite;
+    --dark-code: gold;
+}
+
+* {
+    background-color: light-dark(var(--light-bg), var(--dark-bg));
+    color: light-dark(var(--light-color), var(--dark-color));
+}
+
+code {
+    color: light-dark(var(--light-code), var(--dark-code));
+}
+
+body {
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    padding: 0;
+}
+
+textarea {
+    border: 1 solid red;
+    min-height: 100px;
+    max-height: 150px;
+    width: 300px;
+    border-radius: 5px;
+    margin: 0;
+}
+
+.btn-app {
+    border: 2px solid #008CBA;
+    border-radius: 6px;
+    color: #008CBA;
+    padding: 16px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    --webkit-transition-duration: 0.4s;
+}
+
+.btn-app:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+h1 {
+    color: light-dark(--var(white-title), --var(--dark--title));
+}
+
+.light {
+    /* forces light color-scheme */
+    color-scheme: light;
+}
+
+.dark {
+    /* forces dark color-scheme */
+    color-scheme: dark;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    border: 1px solid var(--dark-code);
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: var(--dark-bg);
+}
