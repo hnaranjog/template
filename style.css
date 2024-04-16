@@ -163,17 +163,19 @@ th {
 
 .nav{
 display: flex;
-flex-direction: column;
+flex-direction: row;
+align-items: center;
 }
 
 .input__wrapper {
   position: relative;
   padding: 1rem 0 0;
+  width: 20%;
 }
 
 .input__field {
   border: 0;
-  border-bottom: 2px solid var(--secondary);
+  border-bottom: 2px solid var(--primary);
   outline: 0;
   color: var(--text);
   padding: 0.25rem 0px;
@@ -190,7 +192,7 @@ flex-direction: column;
 .input__field:placeholder-shown~.input__label {
   font-size: 1rem;
   cursor: text;
-  color: var(--secondary);
+  color: lightdark(var(--light-color), var(--dark-code));;
   top: 1.20rem;
 }
 
@@ -201,12 +203,12 @@ label,
   display: block;
   font-size: 0.875rem;
   left: -0.0625rem;
-  color: var(--secondary);
+  color: lightdark(var(--light-color), var(--dark-code));
   transition: 0.3s;
 }
 
 .input__field:focus~.input__label {
-  color: var(--primary);
+  color:lightdark(var(--light-color), var(--dark-code));
 }
 
 .input__field:focus {
