@@ -1,40 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="light">
-    <section>
-        <h1>Welcome</h1>
-        <textarea placeholder="Tu comentario aqui..."></textarea>
-        <div>
-            <button type="button" class="btn-app">Guardar</button>
-        </div>
-    </section>
-    <h1><code>light-dark()</code> CSS function</h1>
-<section>
-  <h2>Automatic</h2>
-  <p>This section will react to the users system or user agent setting.</p>
-</section>
-<section class="light">
-  <h2>Light</h2>
-  <p>
-    This section will be light due to the <code>color-scheme: light;</code>.
-  </p>
-</section>
-<section class="dark">
-  <h2>Dark</h2>
-  <p>This section will be dark due to the <code>color-scheme: dark;</code>.</p>
-</section>
-Mode:
-<label class="switch">
-  <input type="checkbox" id="btn-mode">
-  <span class="slider round"></span>
-</label>
 
-<script src="script.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="light">
+  <section>
+    <form class="box">
+      <div class="input__wrapper">
+        <input id="password" type="password" class="input__field" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$"
+          placeholder="Your Password">
+        <label for="password" class="input__label">
+          Password
+        </label>
+        <img alt="Eye Icon" title="Eye Icon" src="assets/eye.svg" class="input__icon">
+      </div>
+    </form>
+  </section>
+  <section>
+    <h1>Welcome</h1>
+    <textarea placeholder="Tu comentario aqui..."></textarea>
+    <div>
+      <button type="button" class="btn-app">Guardar</button>
+    </div>
+  </section>
+  <h1><code>light-dark()</code> CSS function</h1>
+  <section>
+    <h2>Automatic</h2>
+    <p>This section will react to the users system or user agent setting.</p>
+  </section>
+  <section class="light">
+    <h2>Light</h2>
+    <p>
+      This section will be light due to the <code>color-scheme: light;</code>.
+    </p>
+  </section>
+  <section class="dark">
+    <h2>Dark</h2>
+    <p>This section will be dark due to the <code>color-scheme: dark;</code>.</p>
+  </section>
+  Mode:
+  <label class="switch">
+    <input type="checkbox" id="btn-mode">
+    <span class="slider round"></span>
+  </label>
+
+  <script src="script.js"></script>
 </body>
+
 </html>

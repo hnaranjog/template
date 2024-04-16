@@ -1,48 +1,62 @@
 function changeMode() {
-    let checkbox = document.getElementById("btn-mode");
-    let body = document.body;
+  let checkbox = document.getElementById("btn-mode");
+  let body = document.body;
 
-    if(checkbox.checked){
-        console.log(checkbox);
-        console.log(body);
-        body.classList.add("dark");
-    } else {
-        body.classList.remove("dark");
-    }
+  if (checkbox.checked) {
+    console.log(checkbox);
+    console.log(body);
+    body.classList.add("dark");
+  } else {
+    body.classList.remove("dark");
+  }
 }
 
-//document.getElementById("btn-mode").addEventListener("change", changeMode);
+document.getElementById("btn-mode").addEventListener("change", changeMode);
 
-var datos = {
-    "Nombre": "Juan",
-    "Edad": 30,
-    "Ciudad": "Barcelona",
-    "País": "España"
-};
+let data = [
+  {
+    Nombre: "Juan",
+    Edad: 30,
+    Ciudad: "Barcelona",
+    País: "España",
+  },
+  {
+    Nombre: "Ciro",
+    Edad: 35,
+    Ciudad: "Pereira",
+    País: "Colombia",
+  },
+  {
+    Nombre: "Naranjo",
+    Edad: 45,
+    Ciudad: "Pereira",
+    País: "Colombia",
+  },
+];
 
-function crearTabla(json) {
-    var tabla = document.getElementById("miTabla");
-    var encabezados = tabla.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0];
-    var cuerpoTabla = tabla.getElementsByTagName('tbody')[0];
+function createTable(data) {
+  let tableUtp = document.getElementById("miTabla");
+  let headUtp = tableUtp
+    .getElementsByTagName("thead")[0]
+    .getElementsByTagName("tr")[0];
+  let bodyTableUtp = tableUtp.getElementsByTagName("tbody")[0];
 
+  headUtp.innerHTML = "";
+  bodyTableUtp.innerHTML = "";
 
-    encabezados.innerHTML = '';
-    cuerpoTabla.innerHTML = '';
+  for (let key in data[0]) {
+    let th = document.createElement("th");
+    th.textContent = key;
+    headUtp.appendChild(th);
+  }
 
-
-    for (var clave in json) {
-        var th = document.createElement('th');
-        th.textContent = clave;
-        encabezados.appendChild(th);
+  data.forEach((item) => {
+    let row = bodyTableUtp.insertRow();
+    for (let key in item) {
+      let cell = row.insertCell();
+      cell.textContent = item[key];
     }
-
-
-    var fila = cuerpoTabla.insertRow();
-    for (var clave in json) {
-        var celda = fila.insertCell();
-        celda.textContent = json[clave];
-    }
+  });
 }
 
-crearTabla(datos);
-
+createTable(data);
