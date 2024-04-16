@@ -24,8 +24,9 @@ code {
 }
 
 body {
-    display: grid;
-    place-content: center;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
     height: 100vh;
     padding: 0;
 }
@@ -140,5 +141,11 @@ th, td {
     text-align: left;
 }
 th {
-    background-color: var(--dark-bg);
+    background-color: light-dark(var(--light-bg), var(--dark-bg));
+    color: light-dark(var(--light-color), var(--dark-color));
+}
+
+.nav{
+  display: flex;
+  flex-direction: column;
 }

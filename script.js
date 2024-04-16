@@ -11,38 +11,52 @@ function changeMode() {
     }
 }
 
-//document.getElementById("btn-mode").addEventListener("change", changeMode);
+document.getElementById("btn-mode").addEventListener("change", changeMode);
 
-var datos = {
-    "Nombre": "Juan",
-    "Edad": 30,
-    "Ciudad": "Barcelona",
-    "País": "España"
-};
+let data = [
+    {
+        "Nombre": "Juan",
+        "Edad": 30,
+        "Ciudad": "Barcelona",
+        "País": "España",
+    },
+    {     
+        "Nombre": "Ciro",
+        "Edad": 35,
+        "Ciudad": "Pereira",
+        "País": "Colombia",
+    },
+    {   
+        "Nombre": "Naranjo",
+        "Edad": 45,
+        "Ciudad": "Pereira",
+        "País": "Colombia"
+    }
+];
 
-function crearTabla(json) {
-    var tabla = document.getElementById("miTabla");
-    var encabezados = tabla.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0];
-    var cuerpoTabla = tabla.getElementsByTagName('tbody')[0];
+function createTable(data) {
+    let tableUtp = document.getElementById("miTabla");
+    let headUtp = tableUtp.getElementsByTagName('thead')[0].getElementsByTagName('tr')[0];
+    let bodyTableUtp = tableUtp.getElementsByTagName('tbody')[0];
+
+    headUtp.innerHTML = '';
+    bodyTableUtp.innerHTML = '';
 
 
-    encabezados.innerHTML = '';
-    cuerpoTabla.innerHTML = '';
-
-
-    for (var clave in json) {
-        var th = document.createElement('th');
-        th.textContent = clave;
-        encabezados.appendChild(th);
+    for (let key in data[0]) {
+        let th = document.createElement('th');
+        th.textContent = key;
+        headUtp.appendChild(th);
     }
 
-
-    var fila = cuerpoTabla.insertRow();
-    for (var clave in json) {
-        var celda = fila.insertCell();
-        celda.textContent = json[clave];
-    }
+    data.forEach(item => {
+        let row = bodyTableUtp.insertRow();
+        for (let key in item) {
+            let cell = row.insertCell();
+            cell.textContent = item[key];
+        }
+    });
 }
 
-crearTabla(datos);
+createTable(data);
 
